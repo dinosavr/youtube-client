@@ -12,6 +12,11 @@ import { HeaderSearchResultsFiltersComponent } from './components/header-search-
 import { ContentSearchResultsComponent } from './components/content-search-results/content-search-results.component';
 import { ContentSearchResultsItemComponent } from './components/content-search-results-item/content-search-results-item.component';
 import { ContentItemDetailComponent } from './components/content-item-detail/content-item-detail.component';
+import { FormRegistrationComponent } from './components/forms/form-registration/form-registration.component';
+import { FormLoginComponent } from './components/forms/form-login/form-login.component';
+import { ButtonLoginComponent } from './components/buttons/button-login/button-login.component';
+import { ButtonSearchComponent } from './components/buttons/button-search/button-search.component';
+import { ButtonSearchResultsFiltersComponent } from './components/buttons/button-search-results-filters/button-search-results-filters.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { ContentItemDetailComponent } from './components/content-item-detail/con
     HeaderSearchResultsFiltersComponent,
     ContentSearchResultsComponent,
     ContentSearchResultsItemComponent,
-    ContentItemDetailComponent
+    ContentItemDetailComponent,
+    FormRegistrationComponent,
+    FormLoginComponent,
+    ButtonLoginComponent,
+    ButtonSearchComponent,
+    ButtonSearchResultsFiltersComponent
   ],
   imports: [
     BrowserModule,
