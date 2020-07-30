@@ -47,7 +47,7 @@ interface IStatistics {
   commentCount: string;
 }
 
-interface IYoutubeVideoResponseItems {
+export interface IYoutubeVideoResponseItems {
   kind: string;
   etag: string;
   id: string;
