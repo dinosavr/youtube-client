@@ -9,7 +9,7 @@ export class ButtonRepostComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

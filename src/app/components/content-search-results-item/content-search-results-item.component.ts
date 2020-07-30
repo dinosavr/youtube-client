@@ -9,7 +9,7 @@ export class ContentSearchResultsItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

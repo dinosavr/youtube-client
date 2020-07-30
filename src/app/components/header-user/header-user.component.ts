@@ -9,7 +9,7 @@ export class HeaderUserComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

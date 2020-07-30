@@ -9,7 +9,7 @@ export class ButtonLikeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

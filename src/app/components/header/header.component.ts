@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  public message: string = 'Hello world !!!';
+
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
-
-  public message = 'Hello world !!!';
 
 }
