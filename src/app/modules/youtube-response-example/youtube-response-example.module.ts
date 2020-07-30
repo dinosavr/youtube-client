@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export interface IPageInfo {
+interface IPageInfo {
   totalResults: number;
   resultsPerPage: number;
 }
 
-export interface IThumbnailsTypes {
+interface IThumbnailsTypes {
   url: string;
   width: number;
   height: number;
 }
 
-export interface IThumbnails {
+interface IThumbnails {
   default: IThumbnailsTypes;
   medium: IThumbnailsTypes;
   high: IThumbnailsTypes;
@@ -20,12 +20,12 @@ export interface IThumbnails {
   maxres: IThumbnailsTypes;
 }
 
-export interface ILocalized {
+interface ILocalized {
   title: string;
   description: string;
 }
 
-export interface ISnippet {
+interface ISnippet {
   publishedAt: string;
   channelId: string;
   title: string;
@@ -39,7 +39,7 @@ export interface ISnippet {
   defaultAudioLanguage: string;
 }
 
-export interface IStatistics {
+interface IStatistics {
   viewCount: string;
   likeCount: string;
   dislikeCount: string;
@@ -47,7 +47,7 @@ export interface IStatistics {
   commentCount: string;
 }
 
-export interface IYoutubeVideoResponseItems {
+interface IYoutubeVideoResponseItems {
   kind: string;
   etag: string;
   id: string;

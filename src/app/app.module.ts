@@ -17,6 +17,11 @@ import { FormLoginComponent } from './components/forms/form-login/form-login.com
 import { ButtonLoginComponent } from './components/buttons/button-login/button-login.component';
 import { ButtonSearchComponent } from './components/buttons/button-search/button-search.component';
 import { ButtonSearchResultsFiltersComponent } from './components/buttons/button-search-results-filters/button-search-results-filters.component';
+import { ButtonMoreComponent } from './components/buttons/button-more/button-more.component';
+import { ButtonViewsComponent } from './components/buttons/button-views/button-views.component';
+import { ButtonLikeComponent } from './components/buttons/button-like/button-like.component';
+import { ButtonDislikeComponent } from './components/buttons/button-dislike/button-dislike.component';
+import { ButtonRepostComponent } from './components/buttons/button-repost/button-repost.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,12 @@ import { ButtonSearchResultsFiltersComponent } from './components/buttons/button
     FormLoginComponent,
     ButtonLoginComponent,
     ButtonSearchComponent,
-    ButtonSearchResultsFiltersComponent
+    ButtonSearchResultsFiltersComponent,
+    ButtonMoreComponent,
+    ButtonViewsComponent,
+    ButtonLikeComponent,
+    ButtonDislikeComponent,
+    ButtonRepostComponent
   ],
   imports: [
     BrowserModule,
