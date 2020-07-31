@@ -59,5 +59,5 @@ export interface IYoutubeVideoResponse {
   kind: string;
   eTag: string;
   pageInfo: IPageInfo;
-  items:IYoutubeVideoResponseItems[];
+  items: IYoutubeVideoResponseItems[];
 }
