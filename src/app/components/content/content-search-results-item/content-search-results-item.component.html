@@ -1,0 +1,18 @@
+<mat-card class="video-item" *ngFor="let post of posts">
+  <div class="video-item-wrapper">
+    <img mat-card-image src="{{ post.snippet.thumbnails.high.url }}" alt="{{ post.snippet.title }}">
+    <mat-card-actions>
+      <mat-icon matBadge="{{ post.statistics.viewCount }}">visibility</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.likeCount }}">thumb_up</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.dislikeCount }}">thumb_down</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.commentCount }}">comment</mat-icon>
+    </mat-card-actions>
+    <mat-card-title>{{ post.snippet.title }}</mat-card-title>
+    <section>
+      <div class="example-button-row">
+        <button mat-raised-button class="more-btn">more ...</button>
+      </div>
+    </section>
+  </div>
+  <div class="status-date-video"></div>
+</mat-card>

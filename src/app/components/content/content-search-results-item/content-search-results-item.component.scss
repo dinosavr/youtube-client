@@ -1,0 +1,72 @@
+.video-item {
+  width: 263px;
+  height: 327px;
+  background: #e5e5e5;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 0px;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+
+  .video-item-wrapper{
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  & img {
+    margin: 0 auto;
+    width: 223px;
+    height: 123px;
+    border-radius: 0;
+  }
+
+  .mat-card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    margin-top: 22px;
+  }
+
+  .mat-card-actions .mat-icon {
+    margin: 0 0 0 8px;
+    font-size: 20px;
+  }
+
+  .mat-card-title {
+    text-align: right;
+    padding-right: 8px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    display: block;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .more-btn {
+    width: 120px;
+    height: 32px;
+    filter: drop-shadow(2px 0px 4px #2f80ed);
+    background: #2f80ed;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+
+    color: #ffffff;
+  }
+
+  .status-date-video {
+    height: 5px;
+    width: 100%;
+    background: #2f80ed;
+    border-radius: 0px 0px 5px 5px;
+    position: absolute;
+    bottom: 0px;
+  }
+}
