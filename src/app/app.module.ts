@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -18,13 +21,14 @@ import { FormRegistrationComponent } from './components/forms/form-registration/
 import { FormLoginComponent } from './components/forms/form-login/form-login.component';
 import { ButtonLoginComponent } from './components/buttons/button-login/button-login.component';
 import { ButtonSearchComponent } from './components/buttons/button-search/button-search.component';
-import { ButtonSearchResultsFiltersComponent } from './components/buttons/button-search-results-filters/button-search-results-filters.component';
+import { ButtonSearchResultsFiltersComponent } from './components/header/button-search-results-filters/button-search-results-filters.component';
 import { ButtonMoreComponent } from './components/buttons/button-more/button-more.component';
 import { ButtonViewsComponent } from './components/buttons/button-views/button-views.component';
 import { ButtonLikeComponent } from './components/buttons/button-like/button-like.component';
 import { ButtonDislikeComponent } from './components/buttons/button-dislike/button-dislike.component';
 import { ButtonRepostComponent } from './components/buttons/button-repost/button-repost.component';
 import { HeaderLogoComponent } from './components/header/header-logo/header-logo.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -48,13 +52,17 @@ import { HeaderLogoComponent } from './components/header/header-logo/header-logo
     ButtonLikeComponent,
     ButtonDislikeComponent,
     ButtonRepostComponent,
-    HeaderLogoComponent
+    HeaderLogoComponent,
+    HighlightDirective
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

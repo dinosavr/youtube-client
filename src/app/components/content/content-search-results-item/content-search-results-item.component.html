@@ -14,5 +14,5 @@
       </div>
     </section>
   </div>
-  <div class="status-date-video"></div>
+  <div [appHighlight]="color" videoDate="{{post.snippet.publishedAt | date:'MM/dd/yyyy'}}" class="status-date-video"></div>
 </mat-card>

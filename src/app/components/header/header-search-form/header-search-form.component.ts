@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-header-search-form',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderSearchFormComponent implements OnInit {
 
+  // @Input() public message: string;
+  @Output() public messageEvent: EventEmitter<object> = new EventEmitter<object>();
+
   constructor() { }
 
   public ngOnInit(): void {
   }
 
+  public onSubmit(f: NgForm): void {
+    this.messageEvent.emit(f.value);
+  }
 }

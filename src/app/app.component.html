@@ -1,4 +1,10 @@
 <div class="wrapper">
-<header><app-header></app-header></header>
-<main><div class="wrapperContent"><app-content></app-content></div></main>
+  <header>
+    <app-header (messageEventHeader) = "receiveMessage($event)"></app-header>
+  </header>
+  <main>
+    <div class="wrapperContent">
+      <app-content [isSearchResultShow]="isSearchResultShow" ></app-content>
+    </div>
+  </main>
 </div>

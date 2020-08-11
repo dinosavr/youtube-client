@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-content',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
+  @Input() public isSearchResultShow: boolean;
+
   constructor() { }
 
   public ngOnInit(): void {
   }
-
 }
