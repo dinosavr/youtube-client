@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IYoutubeVideoResponseItems } from '../../../modules/youtube-response-example/youtube-response-example.module';
 
 @Component({
   selector: 'app-content-search-results-item',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ContentSearchResultsItemComponent {
   public color: string;
 
-  public posts: Array<Object> = [
+  public posts: IYoutubeVideoResponseItems[] = [
     {
       'kind': 'youtube#video',
       'etag': '\'Fznwjl6JEQdo1MGvHOGaz_YanRU/tmmI1yiRrmLWlKikXk1gD3TXsUI\'',
@@ -752,5 +753,25 @@ export class ContentSearchResultsItemComponent {
       }
     }
   ];
+
+  public posts2: IYoutubeVideoResponseItems[] = this.posts.sort( this.compare );
+  /* public sortData(): IYoutubeVideoResponseItems[] {
+    return this.posts.sort((a, b) => {
+      return b.snippet.publishedAt - a.snippet.publishedAt;
+    });
+  } */
+
+  // let itemsSorted: IYoutubeVideoResponseItems[]  = $filter('orderBy')(posts, 'viewCount')
+
+ public compare( a: IYoutubeVideoResponseItems, b: IYoutubeVideoResponseItems ): number {
+    if ( Number(a.statistics.viewCount) < Number(b.statistics.viewCount) ) {
+      return 1;
+    }
+    if ( Number(a.statistics.viewCount) > Number(b.statistics.viewCount) ) {
+      return -1;
+    }
+    return 0;
+  }
+
 
 }
