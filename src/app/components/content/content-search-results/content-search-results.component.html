@@ -1,4 +1,4 @@
-<div *ngIf="isSearchResultShow" class="content">  
-  <app-content-search-results-item #contentsearchresults class="content-search-results">
+<div *ngIf="isSearchResultShow" class="content">
+  <app-content-search-results-item [searchFilter]="searchFilter" [wordFilter]="wordFilter" #contentsearchresults class="content-search-results">
   </app-content-search-results-item>
 </div>

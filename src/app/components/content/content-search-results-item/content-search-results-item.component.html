@@ -1,4 +1,4 @@
-<mat-card class="video-item" *ngFor="let post2 of posts2">
+<mat-card class="video-item" *ngFor="let post2 of posts2 | searchWordFilter: wordFilter">
   <div class="video-item-wrapper">
     <img mat-card-image src="{{ post2.snippet.thumbnails.high.url }}" alt="{{ post2.snippet.title }}">
     <mat-card-actions>
@@ -14,5 +14,6 @@
       </div>
     </section>
   </div>
-  <div [appHighlight]="color" videoDate="{{post2.snippet.publishedAt | date:'MM/dd/yyyy'}}" class="status-date-video"></div>
+  <div [appHighlight]="color" videoDate="{{post2.snippet.publishedAt | date:'MM/dd/yyyy'}}" class="status-date-video">
+  </div>
 </mat-card>

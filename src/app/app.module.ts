@@ -29,6 +29,7 @@ import { ButtonDislikeComponent } from './components/buttons/button-dislike/butt
 import { ButtonRepostComponent } from './components/buttons/button-repost/button-repost.component';
 import { HeaderLogoComponent } from './components/header/header-logo/header-logo.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { SearchWordFilterPipe } from './pipes/search-word-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     ButtonDislikeComponent,
     ButtonRepostComponent,
     HeaderLogoComponent,
-    HighlightDirective
+    HighlightDirective,
+    SearchWordFilterPipe
   ],
   imports: [
     CommonModule,

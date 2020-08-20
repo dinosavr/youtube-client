@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { IYoutubeVideoResponseItems } from '../../../modules/youtube-response-example/youtube-response-example.module';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { ISortSearchResult, IResponseItems } from '../../../modules/youtube-response-example/youtube-response-example.module';
 
 @Component({
   selector: 'app-content-search-results-item',
   templateUrl: './content-search-results-item.component.html',
   styleUrls: ['./content-search-results-item.component.scss']
 })
-export class ContentSearchResultsItemComponent {
+export class ContentSearchResultsItemComponent implements OnInit {
   public color: string;
+  public test: string = 'test';
 
-  public posts: IYoutubeVideoResponseItems[] = [
+  @Input() public searchFilter: string;
+  @Input() public wordFilter: string;
+
+  public posts: IResponseItems[] = [
     {
       'kind': 'youtube#video',
       'etag': '\'Fznwjl6JEQdo1MGvHOGaz_YanRU/tmmI1yiRrmLWlKikXk1gD3TXsUI\'',
@@ -754,24 +758,60 @@ export class ContentSearchResultsItemComponent {
     }
   ];
 
-  public posts2: IYoutubeVideoResponseItems[] = this.posts.sort( this.compare );
-  /* public sortData(): IYoutubeVideoResponseItems[] {
-    return this.posts.sort((a, b) => {
-      return b.snippet.publishedAt - a.snippet.publishedAt;
-    });
-  } */
+  public posts2: IResponseItems[];
+  // public wordFilter: string = 'Обз';
 
-  // let itemsSorted: IYoutubeVideoResponseItems[]  = $filter('orderBy')(posts, 'viewCount')
+  public compareViewCount(a: IResponseItems, b: IResponseItems): number {
 
- public compare( a: IYoutubeVideoResponseItems, b: IYoutubeVideoResponseItems ): number {
-    if ( Number(a.statistics.viewCount) < Number(b.statistics.viewCount) ) {
+    let aItem: number;
+    let bItem: number;
+
+    aItem = Number(a.statistics.viewCount);
+    bItem = Number(b.statistics.viewCount);
+
+    if (aItem < bItem) {
       return 1;
     }
-    if ( Number(a.statistics.viewCount) > Number(b.statistics.viewCount) ) {
+    if (aItem > bItem) {
       return -1;
     }
     return 0;
   }
 
+  public compareDate(a: IResponseItems, b: IResponseItems): number {
+
+    let aItem: string;
+    let bItem: string;
+
+    aItem = a.snippet.publishedAt;
+    bItem = b.snippet.publishedAt;
+
+    if (aItem < bItem) {
+      return 1;
+    }
+    if (aItem > bItem) {
+      return -1;
+    }
+    return 0;
+  }
+
+  public sortSearchResult(items: IResponseItems[], sort: string, desc: boolean): IResponseItems[] {
+    if (sort === 'date') { items = items.sort(this.compareDate); }
+    if (sort === 'viewCount') { items = items.sort(this.compareViewCount); }
+    if (desc) { items = items.reverse(); }
+    return items;
+  }
+
+  public ngOnInit(): void {
+    console.log('Search filter detect in item results');
+    console.log(this.searchFilter);
+    this.posts2 = this.sortSearchResult(this.posts, this.searchFilter, true);
+  }
+
+  public ngOnChanges(): void {
+    /* console.log(this.searchFilter);
+    console.log('detect changes item results');
+    this.posts2 = this.sortSearchResult(this.posts, this.searchFilter, true); */
+  }
 
 }

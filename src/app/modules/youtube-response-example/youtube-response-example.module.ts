@@ -48,7 +48,13 @@ interface IStatistics {
   commentCount: string;
 }
 
-export interface IYoutubeVideoResponseItems {
+export interface ISortSearchResult {
+  items: IResponseItems[];
+  sort: string;
+  desc: boolean;
+}
+
+export interface IResponseItems {
   kind: string;
   etag: string;
   id: string;
@@ -56,9 +62,9 @@ export interface IYoutubeVideoResponseItems {
   statistics: IStatistics;
 }
 
-export interface IYoutubeVideoResponse {
+export interface IResponse {
   kind: string;
   eTag: string;
   pageInfo: IPageInfo;
-  items: IYoutubeVideoResponseItems[];
+  items: IResponseItems[];
 }
