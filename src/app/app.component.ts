@@ -33,16 +33,11 @@ export class AppComponent {
   }
 
   public receiveSort($event: string): void {
-    console.log('Sort was received in app');
-    console.log($event);
     this.searchSort = $event;
  }
 
  public receiveWordFilter($word: string): void {
-  console.log('Word was received in app');
-  console.log($word);
   this.wordFilter = $word;
-  // this.searchSort = $event;
 }
 
 }

@@ -9,7 +9,7 @@ import { AppComponent } from '../../../app.component';
 export class ContentSearchResultsComponent implements OnInit {
 
   @Input() public isSearchResultShow: boolean;
-  @Input() public searchFilter: string;
+  @Input() public searchSort: string;
   @Input() public wordFilter: string;
 
   constructor() { }

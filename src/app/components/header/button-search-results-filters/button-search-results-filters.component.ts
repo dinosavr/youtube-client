@@ -16,7 +16,6 @@ export class ButtonSearchResultsFiltersComponent implements OnInit {
   }
 
   public toggleSearchFilters(): void {
-     console.log('click detected 1');
      this.toggleEvent.emit(this.isSearchFilterToggle);
   }
 

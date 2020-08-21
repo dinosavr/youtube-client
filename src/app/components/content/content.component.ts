@@ -9,7 +9,7 @@ import {NgForm} from '@angular/forms';
 export class ContentComponent implements OnInit {
 
   @Input() public isSearchResultShow: boolean;
-  @Input() public searchFilter: string;
+  @Input() public searchSort: string;
   @Input() public wordFilter: string;
 
   constructor() { }

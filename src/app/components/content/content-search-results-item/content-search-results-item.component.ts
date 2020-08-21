@@ -10,8 +10,9 @@ export class ContentSearchResultsItemComponent implements OnInit {
   public color: string;
   public test: string = 'test';
 
-  @Input() public searchFilter: string;
+  @Input() public searchSort: string;
   @Input() public wordFilter: string;
+  public sortSearchResultParams: string = this.searchSort;
 
   public posts: IResponseItems[] = [
     {
@@ -761,57 +762,7 @@ export class ContentSearchResultsItemComponent implements OnInit {
   public posts2: IResponseItems[];
   // public wordFilter: string = 'Обз';
 
-  public compareViewCount(a: IResponseItems, b: IResponseItems): number {
-
-    let aItem: number;
-    let bItem: number;
-
-    aItem = Number(a.statistics.viewCount);
-    bItem = Number(b.statistics.viewCount);
-
-    if (aItem < bItem) {
-      return 1;
-    }
-    if (aItem > bItem) {
-      return -1;
-    }
-    return 0;
-  }
-
-  public compareDate(a: IResponseItems, b: IResponseItems): number {
-
-    let aItem: string;
-    let bItem: string;
-
-    aItem = a.snippet.publishedAt;
-    bItem = b.snippet.publishedAt;
-
-    if (aItem < bItem) {
-      return 1;
-    }
-    if (aItem > bItem) {
-      return -1;
-    }
-    return 0;
-  }
-
-  public sortSearchResult(items: IResponseItems[], sort: string, desc: boolean): IResponseItems[] {
-    if (sort === 'date') { items = items.sort(this.compareDate); }
-    if (sort === 'viewCount') { items = items.sort(this.compareViewCount); }
-    if (desc) { items = items.reverse(); }
-    return items;
-  }
-
   public ngOnInit(): void {
-    console.log('Search filter detect in item results');
-    console.log(this.searchFilter);
-    this.posts2 = this.sortSearchResult(this.posts, this.searchFilter, true);
-  }
-
-  public ngOnChanges(): void {
-    /* console.log(this.searchFilter);
-    console.log('detect changes item results');
-    this.posts2 = this.sortSearchResult(this.posts, this.searchFilter, true); */
   }
 
 }

@@ -9,6 +9,9 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
 
   public sortQuery: string = 'date';
   public wordSearchFilter: string = '';
+  public sortQueryPrev: string = this.sortQuery;
+  public noReversResult: string = 'noReverse';
+  public reversResult: string = 'reverse';
 
   @Output() public applySearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() public wordSearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
@@ -20,9 +23,16 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
   }
 
   public applySort(filter: string): void {
+    let sortQueryFinal: string;
+    this.sortQueryPrev = this.sortQuery;
     this.sortQuery = filter;
-    this.applySearchFilterEvent.emit(this.sortQuery);
+    if (this.sortQueryPrev === this.sortQuery) {
+      sortQueryFinal = this.sortQuery + '|' + this.reversResult + '|' + Math.random();
+    } else {
+      sortQueryFinal = this.sortQuery + '|' + this.noReversResult + '|' + Math.random();
+    }
 
+    this.applySearchFilterEvent.emit(sortQueryFinal);
   }
 
   public applyWordFilter(word: string): void {

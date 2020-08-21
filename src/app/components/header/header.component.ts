@@ -30,12 +30,10 @@ export class HeaderComponent implements OnInit {
 
 public searchSort($word: string): void {
   this.searchSortEvent.emit($word);
-  console.log($word);
 }
 
 public wordFilter($word: string): void {
   this.wordFilterEvent.emit($word);
-  console.log($word);
 }
 
 }

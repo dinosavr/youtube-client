@@ -30,6 +30,7 @@ import { ButtonRepostComponent } from './components/buttons/button-repost/button
 import { HeaderLogoComponent } from './components/header/header-logo/header-logo.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { SearchWordFilterPipe } from './pipes/search-word-filter.pipe';
+import { SortSearchResultPipe } from './pipes/sort-search-result.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SearchWordFilterPipe } from './pipes/search-word-filter.pipe';
     ButtonRepostComponent,
     HeaderLogoComponent,
     HighlightDirective,
-    SearchWordFilterPipe
+    SearchWordFilterPipe,
+    SortSearchResultPipe
   ],
   imports: [
     CommonModule,
