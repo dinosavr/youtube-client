@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {NgForm} from '@angular/forms';
 
-
 @Component({
   selector: 'app-header-search-form',
   templateUrl: './header-search-form.component.html',

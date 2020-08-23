@@ -10,7 +10,9 @@ export class HighlightDirective implements AfterViewInit {
 
   @Input('appHighlight') public highlightColor: string;
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {
+    this.el.nativeElement.style.backgroundColor = this.currentColor;
+  }
 
   private highlight(color: string): void {
     this.el.nativeElement.style.backgroundColor = color;
