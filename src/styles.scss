@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$contentWrapperMax: 1200px;
+
+.wrapperContent {
+  width: 100%;
+  max-width: $contentWrapperMax;
+  margin: 0 auto;
+}
+
+.overflowAuto {
+  overflow: auto;
+}
+
+.hidden{
+  display: none !important;
+}
+
+
+.search-filters .mat-list-base .mat-list-item > .mat-list-item-content{
+  padding-left: 0;
+}
+
+.content{
+  padding: 30px;
+}
+
+.video-item .mat-card-actions .mat-icon .mat-badge-content{
+  position: relative;
+  right: auto;
+  top: 2px;
+  width: auto;
+  background-color: transparent;
+  color: #000;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  margin-left: 3px;
+}
+
+.filter-item-lnk .mat-icon{
+  position: absolute;
+  bottom: -5px;
+  right: -3px;
+}

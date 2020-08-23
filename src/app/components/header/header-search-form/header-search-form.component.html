@@ -1,0 +1,6 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+<input name="mainSearchInput" ngModel #mainSearchInput="ngModel" class="mainSearch__query" matInput>
+  <div class="example-button-row">
+    <button mat-raised-button color="primary" class="mainSearch__btn">search</button>
+  </div>
+</form>
