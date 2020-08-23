@@ -8,8 +8,6 @@ export class SearchWordFilterPipe implements PipeTransform {
 
   public transform(items: IResponseItems[], filter: string): IResponseItems[] {
 
-    console.log('Filter: ' + filter);
-
     if (!items || !filter) {
         return items;
     }

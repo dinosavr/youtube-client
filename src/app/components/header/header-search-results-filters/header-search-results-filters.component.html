@@ -1,9 +1,18 @@
 <div class="search-filters">
   <mat-list role="list" class="list-filters">
     <mat-list-item role="listitem"><span>Sorting by:</span></mat-list-item>
-    <mat-list-item role="listitem" class="filter-item"><a class="filter-item-lnk" (click)="applySort('date')">date</a></mat-list-item>
-    <mat-list-item role="listitem" class="filter-item"><a class="filter-item-lnk" (click)="applySort('countView')">count of views</a></mat-list-item>
+    <mat-list-item role="listitem" class="filter-item">
+      <a class="filter-item-lnk" (click)="applySort('date')">
+        date <mat-icon *ngIf="isIconDate">{{iconSort}}</mat-icon>
+      </a>
+    </mat-list-item>
+    <mat-list-item role="listitem" class="filter-item">
+      <a class="filter-item-lnk" (click)="applySort('countView')">
+        count of views<mat-icon *ngIf="isIconCountView">{{iconSort}}</mat-icon>
+      </a>
+    </mat-list-item>
     <mat-list-item role="listitem" class="filter-item">by word or sentance</mat-list-item>
-    <mat-list-item role="listitem"><input matInput class="filter-word" #filterWord (input)="applyWordFilter($event.target.value)"></mat-list-item>
+    <mat-list-item role="listitem"><input matInput class="filter-word" #filterWord
+        (input)="applyWordFilter($event.target.value)"></mat-list-item>
   </mat-list>
 </div>

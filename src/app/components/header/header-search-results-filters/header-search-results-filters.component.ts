@@ -12,6 +12,9 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
   public wordSearchFilter: string;
   public sortUpResult: string;
   public sortDownResult: string;
+  public iconSort: string;
+  public isIconDate: boolean;
+  public isIconCountView: boolean;
 
   @Output() public applySearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() public wordSearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
@@ -22,16 +25,18 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
     this.sortDownResult = 'down';
     this.sortDirect = this.sortUpResult;
     this.wordSearchFilter = '';
+    this.iconSort = '';
+    this.isIconDate = false;
+    this.isIconCountView = false;
   }
 
   public ngOnInit(): void {
-    console.log(`this.sortQuery: ${this.sortQuery} filter: ### this.sortDirect: ${this.sortDirect}`);
   }
 
   public applySort(filter: string): void {
     let sortQueryFinal: string;
-
-    console.log(`this.sortQuery: ${this.sortQuery} filter: ${filter} this.sortDirect: ${this.sortDirect}`);
+    if (filter === 'date') { this.isIconDate = true; this.isIconCountView = false; } else {
+      this.isIconDate = false; this.isIconCountView = true; }
 
     if (this.sortQuery === filter) {
       this.sortDirect = (this.sortDirect === this.sortDownResult) ? this.sortUpResult : this.sortDownResult;
@@ -40,7 +45,7 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
     this.sortQuery = filter;
     sortQueryFinal = this.sortQuery + '|' + this.sortDirect;
 
-    console.log('sortQueryFinal: ' + sortQueryFinal);
+    this.iconSort = 'arrow_drop_' + this.sortDirect;
 
     this.applySearchFilterEvent.emit(sortQueryFinal);
   }
