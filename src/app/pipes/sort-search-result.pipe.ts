@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { IResponseItems } from '../modules/youtube-response-example/youtube-response-example.module';
-import { stringify } from 'querystring';
 
 @Pipe({
   name: 'sortSearchResult'
 })
 export class SortSearchResultPipe implements PipeTransform {
-  public isReversePrev: boolean;
 
   public compareViewCount(a: IResponseItems, b: IResponseItems): number {
 
@@ -43,33 +41,37 @@ export class SortSearchResultPipe implements PipeTransform {
   }
 
   public sortSearchResult(items: IResponseItems[], sort: string, desc: boolean): IResponseItems[] {
-    if (sort === 'date') { items = items.sort(this.compareDate); }
-    if (sort === 'countView') { items = items.sort(this.compareViewCount); }
+
+    if (sort === 'date') {
+      items = items.sort(this.compareDate);
+    }
+    if (sort === 'countView') {
+      items = items.sort(this.compareViewCount);
+    }
     if (desc) { items = items.reverse(); }
+
     return items;
   }
 
   public transform(items: IResponseItems[], sort: string): IResponseItems[] {
 
     let sortType: string;
-    let reverse: string;
-    let isReverse: boolean;
+    let sortDirect: string;
+    let isSortUp: boolean;
 
-    isReverse = false;
+    isSortUp = false;
 
-    [sortType, reverse] = sort.split('|');
-
-    if (!items || !sortType) {
+    if (!items || !sort) {
       return items;
     }
 
-    if (reverse === 'reverse' && !this.isReversePrev) {
-      isReverse = true;
-    } else { isReverse = false; }
+    [sortType, sortDirect] = sort.split('|');
 
-    this.isReversePrev = isReverse;
+    if (sortDirect === 'up') {
+      isSortUp = true;
+    } else { isSortUp = false; }
 
-    return this.sortSearchResult(items, sortType, isReverse);
+    return this.sortSearchResult(items, sortType, isSortUp);
   }
 
 }

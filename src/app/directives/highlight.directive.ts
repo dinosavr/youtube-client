@@ -18,9 +18,9 @@ export class HighlightDirective implements AfterViewInit {
 
   public ngAfterViewInit(): void {
 
-    const date1: Date = new Date(this.videoDate);
-    const date2: Date = new Date();
-    const differenceInTime: number = date2.getTime() - date1.getTime();
+    const dateVideoItem: Date = new Date(this.videoDate);
+    const dateCurrent: Date = new Date();
+    const differenceInTime: number = dateCurrent.getTime() - dateVideoItem.getTime();
     const differenceInDays: number = differenceInTime / (1000 * 3600 * 24);
 
     if (differenceInDays < 30) { this.currentColor = 'green'; }

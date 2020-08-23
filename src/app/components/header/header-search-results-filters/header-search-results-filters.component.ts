@@ -7,30 +7,40 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderSearchResultsFiltersComponent implements OnInit {
 
-  public sortQuery: string = 'date';
-  public wordSearchFilter: string = '';
-  public sortQueryPrev: string = this.sortQuery;
-  public noReversResult: string = 'noReverse';
-  public reversResult: string = 'reverse';
+  public sortQuery: string;
+  public sortDirect: string;
+  public wordSearchFilter: string;
+  public sortUpResult: string;
+  public sortDownResult: string;
 
   @Output() public applySearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() public wordSearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor() {
+    this.sortQuery = 'date';
+    this.sortUpResult = 'up';
+    this.sortDownResult = 'down';
+    this.sortDirect = this.sortUpResult;
+    this.wordSearchFilter = '';
+  }
 
   public ngOnInit(): void {
-
+    console.log(`this.sortQuery: ${this.sortQuery} filter: ### this.sortDirect: ${this.sortDirect}`);
   }
 
   public applySort(filter: string): void {
     let sortQueryFinal: string;
-    this.sortQueryPrev = this.sortQuery;
-    this.sortQuery = filter;
-    if (this.sortQueryPrev === this.sortQuery) {
-      sortQueryFinal = this.sortQuery + '|' + this.reversResult + '|' + Math.random();
-    } else {
-      sortQueryFinal = this.sortQuery + '|' + this.noReversResult + '|' + Math.random();
+
+    console.log(`this.sortQuery: ${this.sortQuery} filter: ${filter} this.sortDirect: ${this.sortDirect}`);
+
+    if (this.sortQuery === filter) {
+      this.sortDirect = (this.sortDirect === this.sortDownResult) ? this.sortUpResult : this.sortDownResult;
     }
+
+    this.sortQuery = filter;
+    sortQueryFinal = this.sortQuery + '|' + this.sortDirect;
+
+    console.log('sortQueryFinal: ' + sortQueryFinal);
 
     this.applySearchFilterEvent.emit(sortQueryFinal);
   }
