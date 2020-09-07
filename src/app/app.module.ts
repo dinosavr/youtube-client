@@ -30,7 +30,7 @@ import { HeaderLogoComponent } from './components/header/header-logo/header-logo
 import { HighlightDirective } from './directives/highlight.directive';
 import { SearchWordFilterPipe } from './pipes/search-word-filter.pipe';
 import { SortSearchResultPipe } from './pipes/sort-search-result.pipe';
-import { CountToKKPipe } from './pipes/count-to-kk.pipe';
+import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,7 @@ import { CountToKKPipe } from './pipes/count-to-kk.pipe';
     HighlightDirective,
     SearchWordFilterPipe,
     SortSearchResultPipe,
-    CountToKKPipe
+    ThousandToKKPipe
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,7 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { ISortSearchResult, IResponseItems } from '../../../modules/youtube-response-example/youtube-response-example.module';
+import { Component, OnInit, Input } from '@angular/core';
+import { IResponseItems } from '../../../modules/youtube-response-example/youtube-response-example.module';
+import {CommonModule} from '@angular/common';
+
 
 @Component({
   selector: 'app-content-search-results-item',

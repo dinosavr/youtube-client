@@ -2,10 +2,10 @@
   <div class="video-item-wrapper">
     <img mat-card-image src="{{ post.snippet.thumbnails.high.url }}" alt="{{ post.snippet.title }}">
     <mat-card-actions>
-      <mat-icon matBadge="{{ post.statistics.viewCount | countToKK }}">visibility</mat-icon>
-      <mat-icon matBadge="{{ post.statistics.likeCount | countToKK}}">thumb_up</mat-icon>
-      <mat-icon matBadge="{{ post.statistics.dislikeCount | countToKK }}">thumb_down</mat-icon>
-      <mat-icon matBadge="{{ post.statistics.commentCount | countToKK }}">comment</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.viewCount | thousandToKK }}">visibility</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.likeCount | thousandToKK}}">thumb_up</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.dislikeCount | thousandToKK }}">thumb_down</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.commentCount | thousandToKK }}">comment</mat-icon>
     </mat-card-actions>
     <mat-card-title>{{ post.snippet.title }}</mat-card-title>
     <section>
