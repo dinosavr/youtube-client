@@ -24,12 +24,4 @@ export class AppComponent {
     }
   }
 
-  public receiveSortQuery($sortSearchQuery: string): void {
-    this.searchSortQuery = $sortSearchQuery;
-  }
-
-  public receiveWordFilter($word: string): void {
-    this.wordFilter = $word;
-  }
-
 }

@@ -1,10 +1,10 @@
 <div class="wrapper">
   <header>
-    <app-header (messageEventHeader) = "receiveMessage($event)" (searchSortEvent) = "receiveSortQuery($event)" (wordFilterEvent) = "receiveWordFilter($event)"></app-header>
+    <app-header (messageEventHeader) = "receiveMessage($event)"></app-header>
   </header>
   <main>
     <div class="wrapperContent">
-      <app-content [isSearchResultShow]="isSearchResultShow" [searchSort]="searchSortQuery" [wordFilter]="wordFilter"></app-content>
+      <app-content [isSearchResultShow]="isSearchResultShow"></app-content>
     </div>
   </main>
 </div>
