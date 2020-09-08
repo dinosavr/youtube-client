@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IResponseItems } from '../../modules/youtube-response-example/youtube-response-example.module';
+import { IResponseItems } from './../../youtube/models/youtube-response-example/youtube-response-example.module';
 
 @Injectable()
 export class ContentService {

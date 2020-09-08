@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '../modules/material/material.module';
+import { MaterialModule } from '../shared/material.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderSearchFormComponent } from './components/header/header-search-form/header-search-form.component';
@@ -12,6 +12,7 @@ import { ButtonSearchResultsFiltersComponent } from './components/header/button-
 import { HeaderLogoComponent } from './components/header/header-logo/header-logo.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentService } from './services/content.service';
+import { SearchFilterService } from './services/search-filter.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { ContentService } from './services/content.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ContentService],
+  providers: [ContentService, SearchFilterService],
   exports: [
     MaterialModule,
     FormsModule,

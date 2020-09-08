@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-// import { SearchFilterService } from './services/search-filter.service';
-import { SearchFilterService } from '../../../../services/search-filter.service';
+import { SearchFilterService } from '../../../services/search-filter.service';
 
 @Component({
   selector: 'app-header-search-results-filters',
   templateUrl: './header-search-results-filters.component.html',
   styleUrls: ['./header-search-results-filters.component.scss']
 })
+
 export class HeaderSearchResultsFiltersComponent implements OnInit {
 
   public sortQuery: string;
@@ -50,11 +50,15 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
 
     this.iconSort = commonPartOfIconName + this.sortDirect;
 
-    this.searchFilterService.searchResultFilterQuery = sortQueryFinal;
+    if (sortQueryFinal) {
+      this.searchFilterService.searchResultFilterQuery = sortQueryFinal;
+    }
   }
 
   public applyWordFilter(word: string): void {
+    if (word) {
     this.searchFilterService.searchResultWordFilter = word;
+    }
   }
 
 }

@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
-import { AppComponent } from '../../../app.component';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-search-results',

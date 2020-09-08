@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IResponseItems } from '../modules/youtube-response-example/youtube-response-example.module';
+import { IResponseItems } from '../models/youtube-response-example/youtube-response-example.module';
 
 @Pipe({
   name: 'searchWordFilter'
