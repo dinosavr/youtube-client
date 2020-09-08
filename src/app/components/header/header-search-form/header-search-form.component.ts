@@ -8,7 +8,6 @@ import {NgForm} from '@angular/forms';
 })
 export class HeaderSearchFormComponent implements OnInit {
 
-  // @Input() public message: string;
   @Output() public messageEvent: EventEmitter<object> = new EventEmitter<object>();
 
   constructor() { }

@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SearchFilterService } from '../../../services/search-filter.service';
 
 @Component({
   selector: 'app-header-search-results-filters',
@@ -16,10 +17,7 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
   public isIconDate: boolean;
   public isIconCountView: boolean;
 
-  @Output() public applySearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
-  @Output() public wordSearchFilterEvent: EventEmitter<string> = new EventEmitter<string>();
-
-  constructor() {
+  constructor(private searchFilterService: SearchFilterService) {
     this.sortQuery = 'date';
     this.sortUpResult = 'up';
     this.sortDownResult = 'down';
@@ -34,9 +32,13 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
   }
 
   public applySort(filter: string): void {
+    let commonPartOfIconName: string;
+    commonPartOfIconName = 'arrow_drop_';
     let sortQueryFinal: string;
+
     if (filter === 'date') { this.isIconDate = true; this.isIconCountView = false; } else {
-      this.isIconDate = false; this.isIconCountView = true; }
+      this.isIconDate = false; this.isIconCountView = true;
+    }
 
     if (this.sortQuery === filter) {
       this.sortDirect = (this.sortDirect === this.sortDownResult) ? this.sortUpResult : this.sortDownResult;
@@ -45,14 +47,13 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
     this.sortQuery = filter;
     sortQueryFinal = this.sortQuery + '|' + this.sortDirect;
 
-    this.iconSort = 'arrow_drop_' + this.sortDirect;
+    this.iconSort = commonPartOfIconName + this.sortDirect;
 
-    this.applySearchFilterEvent.emit(sortQueryFinal);
+    this.searchFilterService.searchResultFilterQuery = sortQueryFinal;
   }
 
   public applyWordFilter(word: string): void {
-    this.wordSearchFilter = word;
-    this.wordSearchFilterEvent.emit(this.wordSearchFilter);
+    this.searchFilterService.searchResultWordFilter = word;
   }
 
 }

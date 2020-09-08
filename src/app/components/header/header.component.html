@@ -4,8 +4,8 @@
     <section class="globalSearch">
       <app-header-logo></app-header-logo>
       <app-header-search-form (messageEvent) = "receiveMessage($event)"></app-header-search-form>
-      <app-button-search-results-filters (toggleEvent) = "receiveToggleSearchFilters($event)"></app-button-search-results-filters>
-      <app-header-search-results-filters *ngIf="isSearchFiltersShow" (applySearchFilterEvent)="searchSort($event)" (wordSearchFilterEvent)="wordFilter($event)"></app-header-search-results-filters>
+      <app-button-search-results-filters (toggleEvent) = "receiveToggleSearchFilters()"></app-button-search-results-filters>
+      <app-header-search-results-filters *ngIf="isSearchFiltersShow" (wordSearchFilterEvent)="wordFilter($event)"></app-header-search-results-filters>
     </section>
   </div>
 </div>

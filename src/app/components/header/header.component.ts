@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
   public isSearchFiltersShow: boolean = false;
 
   @Output() public messageEventHeader: EventEmitter<object> = new EventEmitter<object>();
-  @Output() public searchSortEvent: EventEmitter<string> = new EventEmitter<string>();
   @Output() public wordFilterEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
@@ -21,19 +20,15 @@ export class HeaderComponent implements OnInit {
   }
 
   public receiveMessage($event: object): void {
-      this.messageEventHeader.emit($event);
+    this.messageEventHeader.emit($event);
   }
 
-  public receiveToggleSearchFilters($event: object): void {
+  public receiveToggleSearchFilters(): void {
     this.isSearchFiltersShow = !this.isSearchFiltersShow;
-}
+  }
 
-public searchSort($word: string): void {
-  this.searchSortEvent.emit($word);
-}
-
-public wordFilter($word: string): void {
-  this.wordFilterEvent.emit($word);
-}
+  public wordFilter($word: string): void {
+    this.wordFilterEvent.emit($word);
+  }
 
 }

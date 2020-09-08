@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material/material.module';
+import { CoreModule } from './core/core.module';
+import { SearchFilterService } from './services/search-filter.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
 import { HeaderSearchFormComponent } from './components/header/header-search-form/header-search-form.component';
 import { HeaderUserComponent } from './components/header/header-user/header-user.component';
@@ -31,12 +32,12 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { SearchWordFilterPipe } from './pipes/search-word-filter.pipe';
 import { SortSearchResultPipe } from './pipes/sort-search-result.pipe';
 import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     ContentComponent,
     HeaderSearchFormComponent,
     HeaderUserComponent,
@@ -67,9 +68,10 @@ import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [SearchFilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
