@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchFilterService } from '../../../services/search-filter.service';
+// import { SearchFilterService } from './services/search-filter.service';
+import { SearchFilterService } from '../../../../services/search-filter.service';
 
 @Component({
   selector: 'app-header-search-results-filters',
