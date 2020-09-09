@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IResponseItems } from '../../../models/youtube-response-example/youtube-response-example.module';
-import { ContentService } from '../../../../core/services/content.service';
-import { SearchFilterService } from '../../../../core/services/search-filter.service';
+import { IResponseItems } from '../../models/youtube-response-example/youtube-response-example.module';
+import { ContentService } from '../../../core/services/content.service';
+import { SearchFilterService } from '../../../core/services/search-filter.service';
 
 @Component({
   selector: 'app-content-search-results-item',

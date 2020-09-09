@@ -13,6 +13,7 @@ import { HeaderLogoComponent } from './components/header/header-logo/header-logo
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentService } from './services/content.service';
 import { SearchFilterService } from './services/search-filter.service';
+import { ContentPage404Component } from './pages/content-page404/content-page404.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchFilterService } from './services/search-filter.service';
     HeaderSearchResultsFiltersComponent,
     ButtonSearchResultsFiltersComponent,
     HeaderLogoComponent,
-    FooterComponent
+    FooterComponent,
+    ContentPage404Component
   ],
   imports: [
     CommonModule,

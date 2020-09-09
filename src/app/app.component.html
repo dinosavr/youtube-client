@@ -4,7 +4,18 @@
   </header>
   <main>
     <div class="wrapperContent">
-      <app-content [isSearchResultShow]="isSearchResultShow"></app-content>
+      <nav>
+        <a [routerLink]="['/']" routerLinkActive="active">Home</a> |
+        <a routerLink="main" routerLinkActive="active">Main</a> |
+        <a routerLink="list" routerLinkActive="active">List</a> |
+
+        <a [routerLink]="['det', '123']" routerLinkActive="active">Det</a> |
+        <a [routerLink]="['bugaga', '123']" routerLinkActive="active">Page 404</a> |
+
+        <a [routerLink]="['admin']" routerLinkActive="active">Admin</a> |
+
+      </nav>
+      <router-outlet></router-outlet>
     </div>
   </main>
 </div>
