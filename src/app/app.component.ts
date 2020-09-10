@@ -6,22 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public isSearchResultShow: boolean;
-  public searchSortQuery: string;
-  public wordFilter: string;
 
-  constructor() {
-    this.isSearchResultShow = false;
-  }
+  constructor() {}
 
   public ngOnInit(): void { }
-
-  public receiveMessage($event: object): void {
-    if ($event) {
-      this.isSearchResultShow = true;
-    } else {
-      this.isSearchResultShow = false;
-    }
-  }
 
 }

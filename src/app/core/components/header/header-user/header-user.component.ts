@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingService } from '../../../services/setting.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-user',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private settingService: SettingService, public router: Router) { }
+
+  public clickUserBtn(): void {
+    this.router.navigate([this.settingService.urlLogin]);
+  }
 
   public ngOnInit(): void {
   }

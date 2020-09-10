@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 $contentWrapperMax: 1200px;
 
@@ -15,20 +21,22 @@ $contentWrapperMax: 1200px;
   overflow: auto;
 }
 
-.hidden{
+.hidden {
   display: none !important;
 }
 
-
-.search-filters .mat-list-base .mat-list-item > .mat-list-item-content{
+.search-filters .mat-list-base .mat-list-item > .mat-list-item-content {
   padding-left: 0;
 }
 
-.content{
+.content {
   padding: 30px;
 }
 
-.video-item .mat-card-actions .mat-icon .mat-badge-content{
+.mat-raised-button.mat-primary {
+  background: #2f80ed;
+}
+.video-item .mat-card-actions .mat-icon .mat-badge-content {
   position: relative;
   right: auto;
   top: 2px;
@@ -42,8 +50,12 @@ $contentWrapperMax: 1200px;
   margin-left: 3px;
 }
 
-.filter-item-lnk .mat-icon{
+.filter-item-lnk .mat-icon {
   position: absolute;
   bottom: -5px;
   right: -3px;
+}
+
+mat-card-header > .mat-card-header-text {
+  margin: 0;
 }

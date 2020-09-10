@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { MaterialModule } from '../shared/material.module';
+import { SharedModule } from '../shared/shared.module';
+import { YoutubeModule } from '../youtube/youtube.module';
+import { AuthModule } from '../auth/auth.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderSearchFormComponent } from './components/header/header-search-form/header-search-form.component';
@@ -33,12 +35,13 @@ import { SearchFilterService } from './services/search-filter.service';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
+    YoutubeModule,
+    AuthModule,
   ],
   providers: [SettingService, ContentService, SearchFilterService],
   exports: [
     MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
     HeaderComponent,
     HeaderSearchFormComponent,
     HeaderUserComponent,

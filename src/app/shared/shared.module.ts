@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from './material.module';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ButtonLoginComponent } from './components/buttons/button-login/button-login.component';
 import { ButtonSearchComponent } from './components/buttons/button-search/button-search.component';
@@ -48,13 +48,17 @@ const MATERIAL_COMPONENTS: Array<object> = [
   ],
   imports: [
     [MATERIAL_COMPONENTS],
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     MaterialModule
   ],
   exports: [
     [MATERIAL_COMPONENTS],
     HighlightDirective,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class SharedModule { }

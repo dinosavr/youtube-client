@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingService } from '../../../services/setting.service';
 
 @Component({
   selector: 'app-header-logo',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderLogoComponent implements OnInit {
 
-  constructor() { }
+  public urlLogo: string;
+
+  constructor(private settingService: SettingService) {
+    this.urlLogo = this.settingService.urlMain;
+  }
 
   public ngOnInit(): void {
   }
