@@ -11,9 +11,11 @@ import { HeaderSearchResultsFiltersComponent } from './components/header/header-
 import { ButtonSearchResultsFiltersComponent } from './components/header/button-search-results-filters/button-search-results-filters.component';
 import { HeaderLogoComponent } from './components/header/header-logo/header-logo.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ContentPage404Component } from './pages/content-page404/content-page404.component';
+
+import { SettingService } from './services/setting.service';
 import { ContentService } from './services/content.service';
 import { SearchFilterService } from './services/search-filter.service';
-import { ContentPage404Component } from './pages/content-page404/content-page404.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { ContentPage404Component } from './pages/content-page404/content-page404
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [ContentService, SearchFilterService],
+  providers: [SettingService, ContentService, SearchFilterService],
   exports: [
     MaterialModule,
     FormsModule,
