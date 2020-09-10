@@ -5,8 +5,6 @@ import { AppRoutingModule } from '../app-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
 
-import { ContentComponent } from './components/content/content.component';
-import { ContentMainComponent } from './pages/content-main/content-main.component';
 import { ContentSearchResultsComponent } from './pages/content-search-results/content-search-results.component';
 import { ContentSearchResultsItemComponent } from './components/content-search-results-item/content-search-results-item.component';
 import { ContentItemDetailComponent } from './pages/content-item-detail/content-item-detail.component';
@@ -17,14 +15,12 @@ import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
 
 @NgModule({
   declarations: [
-    ContentComponent,
     ContentSearchResultsComponent,
     ContentSearchResultsItemComponent,
     ContentItemDetailComponent,
     SearchWordFilterPipe,
     SortSearchResultPipe,
     ThousandToKKPipe,
-    ContentMainComponent,
   ]
   ,
   imports: [
@@ -34,7 +30,6 @@ import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
   ],
   exports: [
     AppRoutingModule,
-    ContentComponent,
     ContentSearchResultsComponent,
     ContentSearchResultsItemComponent,
     ContentItemDetailComponent,

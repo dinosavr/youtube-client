@@ -1,6 +1,6 @@
 <mat-card class="video-item" *ngFor="let post of posts | sortSearchResult: searchSort | searchWordFilter: wordFilter">
   <div class="video-item-wrapper">
-    <a [routerLink]="['/det', post.id]" routerLinkActive="active">
+    <a [routerLink]="['/video', post.id]" routerLinkActive="active">
       <img mat-card-image src="{{ post.snippet.thumbnails.high.url }}" alt="{{ post.snippet.title }}">
     </a>
     <mat-card-actions>
