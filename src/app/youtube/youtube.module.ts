@@ -14,7 +14,6 @@ import { SearchWordFilterPipe } from './pipes/search-word-filter.pipe';
 import { SortSearchResultPipe } from './pipes/sort-search-result.pipe';
 import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
 import { ContentMainComponent } from './pages/content-main/content-main.component';
-import { ContentLoginComponent } from './pages/content-login/content-login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { ContentLoginComponent } from './pages/content-login/content-login.compo
     SortSearchResultPipe,
     ThousandToKKPipe,
     ContentMainComponent,
-    ContentLoginComponent
   ]
   ,
   imports: [
