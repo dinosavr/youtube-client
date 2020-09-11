@@ -18,7 +18,8 @@ export class HeaderUserComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    if (!localStorage.getItem('login')) {
+
+    if (!localStorage.getItem('login') || localStorage.getItem('login') === 'false') {
       localStorage.setItem('login', 'false');
       this.settingService.txtChangeAuthState = this.settingService.txtLogInState;
     } else {
@@ -29,7 +30,6 @@ export class HeaderUserComponent implements OnInit {
 
   public ngDoCheck(): void {
     this.txtLogState = this.settingService.txtChangeAuthState;
-    console.log(this.txtLogState);
   }
 
 }
