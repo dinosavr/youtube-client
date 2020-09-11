@@ -1,1 +1,21 @@
-<p>content-item-detail works!</p>
+<mat-card class="video-item">
+  <div class="video-item-wrapper">
+    <img mat-card-image src="{{ videoItem.snippet.thumbnails.maxres.url }}" alt="{{ videoItem.snippet.title }}">
+    <mat-card-title>{{ videoItem.snippet.title }}</mat-card-title>
+    <mat-card-subtitle>{{videoItem.snippet.publishedAt | date:'fullDate'}}</mat-card-subtitle>
+    <mat-card-content> <div class="description">Description:</div>{{ videoItem.snippet.description }}</mat-card-content>
+    <div class="clear"></div>
+    <a [routerLink]="['']" routerLinkActive="active" class="backLink">
+      <mat-icon>arrow_back</mat-icon>
+    </a>
+    <mat-card-actions>
+      <mat-icon matBadge="{{ videoItem.statistics.viewCount | thousandToKK }}">visibility</mat-icon>
+      <mat-icon matBadge="{{ videoItem.statistics.likeCount | thousandToKK}}">thumb_up</mat-icon>
+      <mat-icon matBadge="{{ videoItem.statistics.dislikeCount | thousandToKK }}">thumb_down</mat-icon>
+      <mat-icon matBadge="{{ videoItem.statistics.commentCount | thousandToKK }}">comment</mat-icon>
+    </mat-card-actions>
+  </div>
+  <div [appHighlight]="colorBottomBg" videoDate="{{videoItem.snippet.publishedAt | date:'MM/dd/yyyy'}}"
+  class="status-date-video">
+</div>
+</mat-card>

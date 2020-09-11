@@ -25,6 +25,12 @@ $contentWrapperMax: 1200px;
   display: none !important;
 }
 
+.clear{
+  clear: both !important;
+  height: 0px;
+  width: 100%;
+}
+
 .search-filters .mat-list-base .mat-list-item > .mat-list-item-content {
   padding-left: 0;
 }

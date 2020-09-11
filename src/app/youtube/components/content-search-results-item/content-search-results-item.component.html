@@ -12,7 +12,9 @@
     <mat-card-title>{{ post.snippet.title }}</mat-card-title>
     <section>
       <div class="example-button-row">
+        <a [routerLink]="['/video', post.id]" routerLinkActive="active">
         <button mat-raised-button class="more-btn">more ...</button>
+        </a>
       </div>
     </section>
   </div>
