@@ -1,0 +1,24 @@
+.login-card {
+  max-width: 350px;
+  box-sizing: border-box;
+  padding: 28px 20px;
+  margin: 100px auto 50px;
+  background: #f2f2f2;
+}
+mat-form-field {
+  width: 100%;
+}
+.login__btn {
+  float: right;
+  min-width: 125px;
+}
+mat-card-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
