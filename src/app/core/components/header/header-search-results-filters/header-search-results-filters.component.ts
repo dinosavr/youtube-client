@@ -57,7 +57,9 @@ export class HeaderSearchResultsFiltersComponent implements OnInit {
 
   public applyWordFilter(word: string): void {
     if (word) {
-    this.searchFilterService.searchResultWordFilter = word;
+      this.searchFilterService.searchResultWordFilter = word;
+    } else {
+      this.searchFilterService.searchResultWordFilter = '';
     }
   }
 

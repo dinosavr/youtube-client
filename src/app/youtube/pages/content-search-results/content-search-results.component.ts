@@ -7,10 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ContentSearchResultsComponent implements OnInit {
 
-  @Input() public isSearchResultShow: boolean;
-  @Input() public searchSort: string;
-  @Input() public wordFilter: string;
-
   constructor() { }
 
   public ngOnInit(): void {

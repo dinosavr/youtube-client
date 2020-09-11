@@ -21,6 +21,7 @@ export class ContentSearchResultsItemComponent implements OnInit {
   }
 
   public ngDoCheck(): void {
+    this.posts = this.contentService.posts;
     this.searchSort = this.searchFilterService.searchResultFilterQuery;
     this.wordFilter = this.searchFilterService.searchResultWordFilter;
   }
