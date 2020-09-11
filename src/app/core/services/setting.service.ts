@@ -7,4 +7,8 @@ export class SettingService {
   public readonly authorApp: string = 'Sidorov Alexandr';
   public readonly urlMain: string = '/';
   public readonly urlLogin: string = 'login';
+
+  public txtChangeAuthState: string = '';
+  public readonly txtLogInState: string = 'Login';
+  public readonly txtLogOutState: string = 'Logout';
 }

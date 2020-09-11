@@ -13,19 +13,11 @@ export class ContentLoginComponent implements OnInit {
 
   private isLogin: boolean;
   public txtLogBtn: string;
-  public txtLogInBtn: string = 'Login';
-  public txtLogOutBtn: string = 'Logout';
 
   constructor(private authService: AuthService, private setting: SettingService, public router: Router) { }
 
   public ngOnInit(): void {
-
-    if (!localStorage.getItem('login')) {
-      localStorage.setItem('login', 'false');
-      this.txtLogBtn = this.txtLogInBtn;
-    } else {
-      this.txtLogBtn = this.txtLogOutBtn;
-    }
+    this.txtLogBtn = this.setting.txtChangeAuthState;
   }
 
   public onSubmit(f: NgForm): void {
@@ -33,12 +25,14 @@ export class ContentLoginComponent implements OnInit {
     this.isLogin = !this.isLogin;
     if (this.isLogin) {
       localStorage.setItem('login', 'true');
-      this.txtLogBtn = this.txtLogOutBtn;
+      this.setting.txtChangeAuthState = this.setting.txtLogOutState;
     } else {
       localStorage.setItem('login', 'false');
-      this.txtLogBtn = this.txtLogInBtn;
+      this.setting.txtChangeAuthState = this.setting.txtLogInState;
     }
+    this.txtLogBtn = this.setting.txtChangeAuthState;
     this.authService.isLogin = this.isLogin;
+
     if (this.isLogin) { this.router.navigate([this.setting.urlMain]); }
   }
 

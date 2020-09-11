@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderUserComponent implements OnInit {
 
+  public txtLogState: string;
+
   constructor(private settingService: SettingService, public router: Router) { }
 
   public clickUserBtn(): void {
@@ -16,6 +18,18 @@ export class HeaderUserComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    if (!localStorage.getItem('login')) {
+      localStorage.setItem('login', 'false');
+      this.settingService.txtChangeAuthState = this.settingService.txtLogInState;
+    } else {
+      this.settingService.txtChangeAuthState = this.settingService.txtLogOutState;
+    }
+    this.txtLogState = this.settingService.txtChangeAuthState;
+  }
+
+  public ngDoCheck(): void {
+    this.txtLogState = this.settingService.txtChangeAuthState;
+    console.log(this.txtLogState);
   }
 
 }

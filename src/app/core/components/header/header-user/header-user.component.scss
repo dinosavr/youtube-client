@@ -1,4 +1,4 @@
-.user-info{
+.user-info {
   margin: 36px 0px 0px 0px;
   width: 200px;
   text-align: right;
@@ -6,20 +6,22 @@
   position: absolute;
   right: 30px;
 }
-.user-name{
+.user-name {
   padding: 0 10px;
   font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 12px;
-line-height: 14px;
-text-align: right;
-
-color: #4F4F4F;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: right;
+  color: #4f4f4f;
+  &:hover{
+    cursor: pointer;
+  }
 }
-.user{
+.user {
   float: right;
-  background: #2F80ED;
+  background: #2f80ed;
   border-radius: 5px;
   line-height: 24px;
   transform: scale(0.8);
