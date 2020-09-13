@@ -18,6 +18,7 @@ export class ContentSearchResultsItemComponent implements OnInit {
   public error: any;
   public headers: string[];
   public response: IResponse;
+  public listVideoId: Array<string>;
 
   constructor(private contentService: ContentService, private searchFilterService: SearchFilterService) { }
 
@@ -26,7 +27,12 @@ export class ContentSearchResultsItemComponent implements OnInit {
 
   public ngDoCheck(): void {
 
-    if (this.contentService.response) { this.posts = this.contentService.response.items; }
+    if (this.contentService.response) {
+      this.posts = this.contentService.response.items;
+      console.log(this.posts);
+      this.listVideoId = this.posts.map(item => item.id.videoId);
+      console.log(this.listVideoId.join(','));
+    }
     this.searchSort = this.searchFilterService.searchResultFilterQuery;
     this.wordFilter = this.searchFilterService.searchResultWordFilter;
   }
