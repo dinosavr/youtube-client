@@ -22,24 +22,13 @@ export class ContentSearchResultsItemComponent implements OnInit {
   constructor(private contentService: ContentService, private searchFilterService: SearchFilterService) { }
 
   public ngOnInit(): void {
-    // this.posts = this.contentService.posts;
   }
 
   public ngDoCheck(): void {
-    // console.log(this.response);
 
-    if (this.response) { this.posts = this.response.items; }
+    if (this.contentService.response) { this.posts = this.contentService.response.items; }
     this.searchSort = this.searchFilterService.searchResultFilterQuery;
     this.wordFilter = this.searchFilterService.searchResultWordFilter;
   }
 
-  public showResponse(): void {
-    this.contentService.getYoutubeVideoList()
-      .subscribe((response: IResponse) => this.response = {
-        kind: response.kind,
-        etag: response.etag,
-        pageInfo: response.pageInfo,
-        items: response.items,
-      });
-  }
 }

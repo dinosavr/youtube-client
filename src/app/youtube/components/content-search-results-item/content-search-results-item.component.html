@@ -1,15 +1,3 @@
-<div>
-<button (click)="showResponse()">Get Youtube JSON response</button>
-<span *ngIf="response">
-  <div *ngIf="headers">
-    Response headers:
-    <ul>
-      <li *ngFor="let header of headers">{{header}}</li>
-    </ul>
-  </div>
-</span>
-</div>
-<p *ngIf="error" class="error">{{error | json}}</p>
 <mat-card class="video-item" *ngFor="let post of posts | sortSearchResult: searchSort | searchWordFilter: wordFilter">
   <div class="video-item-wrapper">
     <a [routerLink]="['/video', post.id.videoId]" routerLinkActive="active">

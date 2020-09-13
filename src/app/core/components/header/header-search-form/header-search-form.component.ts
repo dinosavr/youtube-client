@@ -1,8 +1,8 @@
-import { Component, ViewChild, ElementRef, OnChanges, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Observable, fromEvent, from, of } from 'rxjs';
-import { delay } from 'rxjs/internal/operators';
-import { concatMap, map, debounceTime, distinctUntilChanged } from 'rxjs/internal/operators';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Observable, fromEvent} from 'rxjs';
+import { filter, map, debounceTime, distinctUntilChanged } from 'rxjs/internal/operators';
+import { ContentService } from '../../../services/content.service';
+import { SettingService } from '../../../services/setting.service';
 
 @Component({
   selector: 'app-header-search-form',
@@ -12,23 +12,17 @@ import { concatMap, map, debounceTime, distinctUntilChanged } from 'rxjs/interna
 export class HeaderSearchFormComponent {
 
   @ViewChild('toTarget') public toTarget: ElementRef;
-   public previousRes: HTMLTextAreaElement;
-  constructor() { }
 
-/*   public ngAfterViewInit(): void {
-    (fromEvent(this.toTarget.nativeElement, 'keyup') as Observable<KeyboardEvent>)
-      .pipe(concatMap(item => of(item).pipe(delay(1000)))
-      ).subscribe(res => {
-        console.log((<HTMLTextAreaElement>res.target).value);
-      });
-  } */
+  constructor(private setting: SettingService, private content: ContentService) { }
 
   public ngAfterViewInit(): void {
-    (fromEvent(this.toTarget.nativeElement, 'keyup') as Observable<KeyboardEvent>)
+
+    (fromEvent(this.toTarget.nativeElement, 'input') as Observable<KeyboardEvent>)
     .pipe(map((event: Event) => (event.target as HTMLInputElement).value))
-    .pipe(debounceTime(3000))
+    .pipe(debounceTime(this.setting.YOUTUBE_DELAY_SEND_QUERY))
     .pipe(distinctUntilChanged())
-    .subscribe(data => console.log(data));
+    .pipe(filter(data => data.length >= this.setting.YOUTUBE_MIN_LENGTH_SEARCH_QUERY))
+    .subscribe(data => this.content.showResponse(data));
   }
 
 }
