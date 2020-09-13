@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AppRoutingModule } from '../app-routing.module';
-
 import { SharedModule } from '../shared/shared.module';
 
 import { ContentSearchResultsComponent } from './pages/content-search-results/content-search-results.component';
@@ -26,13 +24,6 @@ import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
   imports: [
     CommonModule,
     SharedModule,
-    AppRoutingModule
   ],
-  exports: [
-    AppRoutingModule,
-    ContentSearchResultsComponent,
-    ContentSearchResultsItemComponent,
-    ContentItemDetailComponent,
-  ]
 })
 export class YoutubeModule { }

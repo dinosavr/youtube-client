@@ -11,7 +11,10 @@ export class HeaderUserComponent implements OnInit {
 
   public txtLogState: string;
 
-  constructor(private settingService: SettingService, public router: Router) { }
+  constructor(
+    private settingService: SettingService,
+    public router: Router
+    ) { }
 
   public clickUserBtn(): void {
     this.router.navigate([this.settingService.urlLogin]);

@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from '../app-routing.module';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -47,16 +50,20 @@ const MATERIAL_COMPONENTS: Array<object> = [
     FormLoginComponent,
   ],
   imports: [
+    HttpClientModule,
     [MATERIAL_COMPONENTS],
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    AppRoutingModule
   ],
   exports: [
+    HttpClientModule,
     [MATERIAL_COMPONENTS],
     HighlightDirective,
     FormsModule,
     ReactiveFormsModule,
+    AppRoutingModule
   ]
 })
 export class SharedModule { }

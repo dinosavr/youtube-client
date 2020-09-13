@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ContentService } from './../../services/content.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   @Output() public messageEventHeader: EventEmitter<object> = new EventEmitter<object>();
   @Output() public wordFilterEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(public contentService: ContentService) { }
 
   public ngOnInit(): void {
   }

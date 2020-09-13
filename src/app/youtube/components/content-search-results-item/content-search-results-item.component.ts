@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IResponseItems } from '../../models/youtube-response-example/youtube-response-example.module';
+import { IResponse, IResponseItems } from '../../models/youtube-response-example/youtube-response-example.module';
 import { ContentService } from '../../../core/services/content.service';
 import { SearchFilterService } from '../../../core/services/search-filter.service';
 
@@ -14,16 +14,32 @@ export class ContentSearchResultsItemComponent implements OnInit {
   public wordFilter: string;
   public posts: IResponseItems[];
 
+  // tslint:disable-next-line:no-any
+  public error: any;
+  public headers: string[];
+  public response: IResponse;
+
   constructor(private contentService: ContentService, private searchFilterService: SearchFilterService) { }
 
   public ngOnInit(): void {
-    this.posts = this.contentService.posts;
+    // this.posts = this.contentService.posts;
   }
 
   public ngDoCheck(): void {
-    this.posts = this.contentService.posts;
+    // console.log(this.response);
+
+    if (this.response) { this.posts = this.response.items; }
     this.searchSort = this.searchFilterService.searchResultFilterQuery;
     this.wordFilter = this.searchFilterService.searchResultWordFilter;
   }
 
+  public showResponse(): void {
+    this.contentService.getYoutubeVideoList()
+      .subscribe((response: IResponse) => this.response = {
+        kind: response.kind,
+        etag: response.etag,
+        pageInfo: response.pageInfo,
+        items: response.items,
+      });
+  }
 }

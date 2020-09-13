@@ -51,17 +51,22 @@ export interface ISortSearchResult {
   desc: boolean;
 }
 
+export interface IVideoId {
+  kind: string;
+  videoId: string;
+}
+
 export interface IResponseItems {
   kind: string;
   etag: string;
-  id: string;
+  id: IVideoId;
   snippet: ISnippet;
   statistics: IStatistics;
 }
 
 export interface IResponse {
   kind: string;
-  eTag: string;
+  etag: string;
   pageInfo: IPageInfo;
   items: IResponseItems[];
 }

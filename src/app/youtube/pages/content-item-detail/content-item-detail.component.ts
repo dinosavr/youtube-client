@@ -31,7 +31,8 @@ export class ContentItemDetailComponent implements OnInit {
       return items;
     }
 
-    return items.filter(item => item.id.indexOf(id) !== -1);
+    return items.filter(item => item.id.videoId.indexOf(id) !== -1);
+
   }
 
 }

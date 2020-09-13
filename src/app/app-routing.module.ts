@@ -9,13 +9,14 @@ import { ContentSearchResultsComponent } from './youtube/pages/content-search-re
 
 const routes: Routes = [
   { path: '', component: ContentSearchResultsComponent, canActivate: [AuthGuard] },
-  { path: 'main',
-  component: ContentSearchResultsComponent,
-  canActivate: [AuthGuard],
-},
+  {
+    path: 'main',
+    component: ContentSearchResultsComponent,
+    canActivate: [AuthGuard],
+  },
   { path: 'login', component: ContentLoginComponent },
-  { path: 'video/:id', component: ContentItemDetailComponent },
-  { path: '**', component: ContentPage404Component },
+  { path: 'video/:id', component: ContentItemDetailComponent, canActivate: [AuthGuard] },
+  { path: '**', component: ContentPage404Component, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

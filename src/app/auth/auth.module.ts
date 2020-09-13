@@ -13,6 +13,6 @@ import { AuthService } from './services/auth.service';
     SharedModule,
     CommonModule
   ],
-  providers: [AuthService],
+  providers: [AuthService]
 })
 export class AuthModule { }

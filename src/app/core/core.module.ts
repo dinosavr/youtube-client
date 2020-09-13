@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../shared/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { YoutubeModule } from '../youtube/youtube.module';
 import { AuthModule } from '../auth/auth.module';
@@ -32,7 +31,6 @@ import { SearchFilterService } from './services/search-filter.service';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
@@ -41,14 +39,7 @@ import { SearchFilterService } from './services/search-filter.service';
   ],
   providers: [SettingService, ContentService, SearchFilterService],
   exports: [
-    MaterialModule,
-    HeaderComponent,
-    HeaderSearchFormComponent,
-    HeaderUserComponent,
-    HeaderSearchResultsFiltersComponent,
-    ButtonSearchResultsFiltersComponent,
-    HeaderLogoComponent,
-    FooterComponent,
+    HeaderComponent
   ],
 })
 export class CoreModule { }
