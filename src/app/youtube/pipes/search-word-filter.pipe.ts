@@ -1,12 +1,12 @@
+import { IResponseItemsVideo } from './../models/youtube-response-example/youtube-response-example.module';
 import { Pipe, PipeTransform } from '@angular/core';
-import { IResponseItems } from '../models/youtube-response-example/youtube-response-example.module';
 
 @Pipe({
   name: 'searchWordFilter'
 })
 export class SearchWordFilterPipe implements PipeTransform {
 
-  public transform(items: IResponseItems[], filter: string): IResponseItems[] {
+  public transform(items: IResponseItemsVideo[], filter: string): IResponseItemsVideo[] {
 
     if (!items || !filter) {
         return items;

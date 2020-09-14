@@ -1,12 +1,12 @@
+import { IResponseItemsVideo } from './../models/youtube-response-example/youtube-response-example.module';
 import { Pipe, PipeTransform } from '@angular/core';
-import { IResponseItems } from '../models/youtube-response-example/youtube-response-example.module';
 
 @Pipe({
   name: 'sortSearchResult'
 })
 export class SortSearchResultPipe implements PipeTransform {
 
-  public compareViewCount(a: IResponseItems, b: IResponseItems): number {
+  public compareViewCount(a: IResponseItemsVideo, b: IResponseItemsVideo): number {
 
     let aItem: number;
     let bItem: number;
@@ -23,7 +23,7 @@ export class SortSearchResultPipe implements PipeTransform {
     return 0;
   }
 
-  public compareDate(a: IResponseItems, b: IResponseItems): number {
+  public compareDate(a: IResponseItemsVideo, b: IResponseItemsVideo): number {
 
     let aItem: string;
     let bItem: string;
@@ -40,7 +40,7 @@ export class SortSearchResultPipe implements PipeTransform {
     return 0;
   }
 
-  public sortSearchResult(items: IResponseItems[], sort: string, desc: boolean): IResponseItems[] {
+  public sortSearchResult(items: IResponseItemsVideo[], sort: string, desc: boolean): IResponseItemsVideo[] {
 
     if (sort === 'date') {
       items = items.sort(this.compareDate);
@@ -53,7 +53,7 @@ export class SortSearchResultPipe implements PipeTransform {
     return items;
   }
 
-  public transform(items: IResponseItems[], sort: string): IResponseItems[] {
+  public transform(items: IResponseItemsVideo[], sort: string): IResponseItemsVideo[] {
 
     let sortType: string;
     let sortDirect: string;

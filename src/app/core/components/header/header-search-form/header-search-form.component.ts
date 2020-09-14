@@ -1,8 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { Observable, fromEvent} from 'rxjs';
+import { Observable, fromEvent } from 'rxjs';
 import { filter, map, debounceTime, distinctUntilChanged } from 'rxjs/internal/operators';
 import { ContentService } from '../../../services/content.service';
 import { SettingService } from '../../../services/setting.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-search-form',
@@ -13,16 +14,26 @@ export class HeaderSearchFormComponent {
 
   @ViewChild('toTarget') public toTarget: ElementRef;
 
-  constructor(private setting: SettingService, private content: ContentService) { }
+  constructor(
+    private setting: SettingService,
+    private content: ContentService,
+    public router: Router) { }
 
   public ngAfterViewInit(): void {
 
     (fromEvent(this.toTarget.nativeElement, 'input') as Observable<KeyboardEvent>)
-    .pipe(map((event: Event) => (event.target as HTMLInputElement).value))
-    .pipe(debounceTime(this.setting.YOUTUBE_DELAY_SEND_QUERY))
-    .pipe(distinctUntilChanged())
-    .pipe(filter(data => data.length >= this.setting.YOUTUBE_MIN_LENGTH_SEARCH_QUERY))
-    .subscribe(data => this.content.showResponse(data));
+      .pipe(map((event: Event) => (event.target as HTMLInputElement).value))
+      .pipe(debounceTime(this.setting.YOUTUBE_DELAY_SEND_QUERY))
+      .pipe(distinctUntilChanged())
+      .pipe(filter(data => data.length >= this.setting.YOUTUBE_MIN_LENGTH_SEARCH_QUERY))
+      .subscribe(
+        data => {
+          if (this.router.url !== this.setting.urlMain) {
+            this.router.navigate([this.setting.urlMain]);
+           }
+          this.content.subscribeYoutubeVideoList(data);
+        }
+      );
   }
 
 }

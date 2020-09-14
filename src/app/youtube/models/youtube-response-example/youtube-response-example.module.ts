@@ -9,7 +9,7 @@ interface IThumbnailsTypes {
   height: number;
 }
 
-interface IThumbnails {
+export interface IThumbnails {
   default: IThumbnailsTypes;
   medium: IThumbnailsTypes;
   high: IThumbnailsTypes;
@@ -54,6 +54,21 @@ export interface ISortSearchResult {
 export interface IVideoId {
   kind: string;
   videoId: string;
+}
+
+export interface IResponseItemsVideo {
+  kind: string;
+  etag: string;
+  id: string;
+  snippet: ISnippet;
+  statistics: IStatistics;
+}
+
+export interface IResponseVideos {
+  kind: string;
+  etag: string;
+  pageInfo: IPageInfo;
+  items: IResponseItemsVideo[];
 }
 
 export interface IResponseItems {
