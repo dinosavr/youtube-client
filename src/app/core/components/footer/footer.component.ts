@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SettingService } from '../../services/setting.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,13 +7,9 @@ import { SettingService } from '../../services/setting.service';
 })
 export class FooterComponent implements OnInit {
 
-  public author: string;
-
-  constructor(private settingService: SettingService) { }
+  constructor() { }
 
   public ngOnInit(): void {
-    console.log(this.settingService.authorApp);
-    this.author = this.settingService.authorApp;
   }
 
 }

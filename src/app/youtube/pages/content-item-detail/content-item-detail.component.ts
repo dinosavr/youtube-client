@@ -27,9 +27,7 @@ export class ContentItemDetailComponent implements OnInit {
       this.videoItem = this.getVideo(this.content.response2.items, this.videoId)[0];
       this.content.post = null;
     } else {
-      console.log('detail page');
       this.content.subscribeYoutubeVideoInfo(this.videoId);
-      // this.videoItem = this.content.post;
     }
 
   }

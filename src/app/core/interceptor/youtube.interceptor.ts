@@ -14,7 +14,7 @@ import { SettingService } from '../services/setting.service';
 export class YoutubeInterceptor implements HttpInterceptor {
   constructor(private content: SettingService) {}
 
-  public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  public intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(req.clone({
       setParams: {
         key: this.content.YOUTUBE_API_KEY

@@ -48,7 +48,6 @@ export class ContentService {
   }
 
   public subscribeYoutubeVideosInfo(query: string): void {
-    let isDetailPage: boolean;
     this.getYoutubeVideosInfo(query)
       .subscribe(
         (videoInfo: IResponseVideos) => {
@@ -61,14 +60,7 @@ export class ContentService {
 
         },
         err => console.error('something wrong occurred: ' + err),
-        () => {
-
-          isDetailPage = (this.response2.items.length === 1);
-          if (isDetailPage){
-            console.log('Detail Info was got');
-            console.log(this.response2);
-          }
-        }
+        () => { }
       );
 
   }
@@ -87,7 +79,7 @@ export class ContentService {
         },
         err => console.error('something wrong occurred: ' + err),
         () => {
-             this.post = this.responseVideoInfo.items[0];
+          this.post = this.responseVideoInfo.items[0];
         }
       );
 
