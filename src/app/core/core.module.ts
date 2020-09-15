@@ -6,7 +6,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
-import { YoutubeModule } from '../youtube/youtube.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderSearchFormComponent } from './components/header/header-search-form/header-search-form.component';
@@ -39,7 +38,6 @@ import { YoutubeInterceptor } from './interceptor/youtube.interceptor';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    YoutubeModule,
     AppRoutingModule
   ],
   providers: [SettingService, ContentService, SearchFilterService, AuthService,

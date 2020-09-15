@@ -17,8 +17,7 @@ export class ContentSearchResultsItemComponent implements OnInit {
   public wordFilter: string;
   public posts: IResponseItemsVideo[];
 
-  // tslint:disable-next-line:no-any
-  public error: any;
+  public error: unknown;
   public headers: string[];
   public response: IResponse;
   public listVideoId: Array<string>;
@@ -34,7 +33,7 @@ export class ContentSearchResultsItemComponent implements OnInit {
     if (this.content.response2) {
       this.posts = this.content.response2.items;
     } else {
-      // this.content.subscribeYoutubeVideoList(this.setting.YOUTUBE_DEFAULT_QUERY);
+      this.content.subscribeYoutubeVideoList(this.setting.YOUTUBE_DEFAULT_QUERY);
     }
   }
 
