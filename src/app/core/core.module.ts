@@ -17,6 +17,8 @@ import { ContentPage404Component } from './pages/content-page404/content-page404
 import { SettingService } from './services/setting.service';
 import { ContentService } from './services/content.service';
 import { SearchFilterService } from './services/search-filter.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { YoutubeInterceptor } from './interceptor/youtube.interceptor';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { SearchFilterService } from './services/search-filter.service';
     YoutubeModule,
     AuthModule,
   ],
-  providers: [SettingService, ContentService, SearchFilterService],
+  providers: [SettingService, ContentService, SearchFilterService,
+    { provide: HTTP_INTERCEPTORS, useClass: YoutubeInterceptor, multi: true },
+  ],
   exports: [
     HeaderComponent
   ],

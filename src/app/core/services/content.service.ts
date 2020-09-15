@@ -28,16 +28,6 @@ export class ContentService {
     return this.httpClient.get<IResponseVideos>(`${this.setting.YOUTUBE_URL_VIDEOS}&id=${query}`);
   }
 
-  private getVideo(items: IResponseItemsVideo[], id: string): IResponseItemsVideo[] {
-
-    if (!items || !id) {
-      return items;
-    }
-
-    return items.filter(item => item.id.indexOf(id) !== -1);
-
-  }
-
   public subscribeYoutubeVideoList(query: string): void {
     let queryYoutubeVideosInfo: string;
     this.getYoutubeVideoList(query)
