@@ -28,8 +28,8 @@ export class HeaderSearchFormComponent {
       .pipe(filter(data => data.length >= this.setting.YOUTUBE_MIN_LENGTH_SEARCH_QUERY))
       .subscribe(
         data => {
-          if (this.router.url !== this.setting.urlMain) {
-            this.router.navigate([this.setting.urlMain]);
+          if (this.router.url !== this.setting.URL_MAIN) {
+            this.router.navigate([this.setting.URL_MAIN]);
            }
           this.content.subscribeYoutubeVideoList(data);
         }

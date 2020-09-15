@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { YoutubeRoutingModule } from '../youtube/youtube-routing.module';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -23,6 +24,7 @@ import { ThousandToKKPipe } from './pipes/thousand-to-kk.pipe';
   ,
   imports: [
     CommonModule,
+    YoutubeRoutingModule,
     SharedModule,
   ],
 })

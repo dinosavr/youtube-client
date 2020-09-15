@@ -1,6 +1,6 @@
 <mat-card *ngIf=videoItem class="video-item">
   <div class="video-item-wrapper">
-    <img mat-card-image src="{{ getImageVideo(videoItem.snippet.thumbnails) }}" alt="{{ videoItem.snippet.title }}">
+    <img mat-card-image src="{{ getBestQualityImageVideo(videoItem.snippet.thumbnails) }}" alt="{{ videoItem.snippet.title }}">
     <mat-card-title>{{ videoItem.snippet.title }}</mat-card-title>
     <mat-card-subtitle>{{videoItem.snippet.publishedAt | date:'fullDate'}}</mat-card-subtitle>
     <mat-card-content> <div class="description">Description:</div>{{ videoItem.snippet.description }}</mat-card-content>

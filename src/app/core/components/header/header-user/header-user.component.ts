@@ -17,16 +17,16 @@ export class HeaderUserComponent implements OnInit {
     ) { }
 
   public clickUserBtn(): void {
-    this.router.navigate([this.setting.urlLogin]);
+    this.router.navigate([this.setting.URL_LOGIN]);
   }
 
   public ngOnInit(): void {
 
     if (!localStorage.getItem('login') || localStorage.getItem('login') === 'false') {
       localStorage.setItem('login', 'false');
-      this.setting.txtChangeAuthState = this.setting.txtLogInState;
+      this.setting.txtChangeAuthState = this.setting.TXT_LOG_IN_STATE;
     } else {
-      this.setting.txtChangeAuthState = this.setting.txtLogOutState;
+      this.setting.txtChangeAuthState = this.setting.TXT_LOG_OUT_STATE;
     }
     this.txtLogState = this.setting.txtChangeAuthState;
   }

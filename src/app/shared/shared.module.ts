@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from '../app-routing.module';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -55,7 +53,6 @@ const MATERIAL_COMPONENTS: Array<object> = [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    AppRoutingModule
   ],
   exports: [
     HttpClientModule,
@@ -63,7 +60,6 @@ const MATERIAL_COMPONENTS: Array<object> = [
     HighlightDirective,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
   ]
 })
 export class SharedModule { }

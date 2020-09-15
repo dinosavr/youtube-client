@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthService {
 
-  public isLogin: boolean = (localStorage.getItem('login') === 'true') || false;
+  public isLogin: boolean = false;
 
-  constructor() { }
+constructor() {
+  this.isLogin = (localStorage.getItem('login') === 'true');
+ }
 }

@@ -24,7 +24,7 @@ export class ContentItemDetailComponent implements OnInit {
     });
 
     if (this.content.response2) {
-      this.videoItem = this.getVideo(this.content.response2.items, this.videoId)[0];
+      this.videoItem = this.getVideoItemById(this.content.response2.items, this.videoId)[0];
       this.content.post = null;
     } else {
       this.content.subscribeYoutubeVideoInfo(this.videoId);
@@ -36,7 +36,7 @@ export class ContentItemDetailComponent implements OnInit {
     if (this.content.post) { this.videoItem = this.content.post; }
   }
 
-  public getVideo(items: IResponseItemsVideo[], id: string): IResponseItemsVideo[] {
+  public getVideoItemById(items: IResponseItemsVideo[], id: string): IResponseItemsVideo[] {
 
     if (!items || !id) {
       return items;
@@ -46,7 +46,7 @@ export class ContentItemDetailComponent implements OnInit {
 
   }
 
-  public getImageVideo(item: IThumbnails): string {
+  public getBestQualityImageVideo(item: IThumbnails): string {
     let urlImage: string;
 
     switch (true) {

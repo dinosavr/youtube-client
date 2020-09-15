@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AppRoutingModule } from '../app-routing.module';
+
 import { SharedModule } from '../shared/shared.module';
 import { YoutubeModule } from '../youtube/youtube.module';
-import { AuthModule } from '../auth/auth.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderSearchFormComponent } from './components/header/header-search-form/header-search-form.component';
@@ -17,7 +20,7 @@ import { ContentPage404Component } from './pages/content-page404/content-page404
 import { SettingService } from './services/setting.service';
 import { ContentService } from './services/content.service';
 import { SearchFilterService } from './services/search-filter.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthService } from './../auth/services/auth.service';
 import { YoutubeInterceptor } from './interceptor/youtube.interceptor';
 
 @NgModule({
@@ -29,7 +32,7 @@ import { YoutubeInterceptor } from './interceptor/youtube.interceptor';
     ButtonSearchResultsFiltersComponent,
     HeaderLogoComponent,
     FooterComponent,
-    ContentPage404Component
+    ContentPage404Component,
   ],
   imports: [
     CommonModule,
@@ -37,13 +40,15 @@ import { YoutubeInterceptor } from './interceptor/youtube.interceptor';
     ReactiveFormsModule,
     SharedModule,
     YoutubeModule,
-    AuthModule,
+    AppRoutingModule
   ],
-  providers: [SettingService, ContentService, SearchFilterService,
+  providers: [SettingService, ContentService, SearchFilterService, AuthService,
     { provide: HTTP_INTERCEPTORS, useClass: YoutubeInterceptor, multi: true },
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    AppRoutingModule,
+    SharedModule
   ],
 })
 export class CoreModule { }

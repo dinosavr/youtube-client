@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../auth/services/auth.service';
 import { SettingService } from '../../../core/services/setting.service';
+import { ContentService } from '../../../core/services/content.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,12 +12,25 @@ import { Router } from '@angular/router';
 })
 export class ContentLoginComponent implements OnInit {
 
-  private isLogin: boolean;
+  public isLogin: boolean;
   public txtLogBtn: string;
 
-  constructor(private authService: AuthService, private setting: SettingService, public router: Router) { }
+  constructor(
+    private auth: AuthService,
+    private setting: SettingService,
+    private content: ContentService,
+    public router: Router
+  ) { }
 
   public ngOnInit(): void {
+    this.isLogin = (localStorage.getItem('login') === 'true');
+    this.auth.isLogin = this.isLogin;
+    this.txtLogBtn = this.setting.txtChangeAuthState;
+  }
+
+  public ngDoCheck(): void {
+    this.isLogin = (localStorage.getItem('login') === 'true');
+    this.auth.isLogin = this.isLogin;
     this.txtLogBtn = this.setting.txtChangeAuthState;
   }
 
@@ -25,15 +39,17 @@ export class ContentLoginComponent implements OnInit {
     this.isLogin = !this.isLogin;
     if (this.isLogin) {
       localStorage.setItem('login', 'true');
-      this.setting.txtChangeAuthState = this.setting.txtLogOutState;
+      this.setting.txtChangeAuthState = this.setting.TXT_LOG_OUT_STATE;
     } else {
       localStorage.setItem('login', 'false');
-      this.setting.txtChangeAuthState = this.setting.txtLogInState;
+      this.setting.txtChangeAuthState = this.setting.TXT_LOG_IN_STATE;
     }
     this.txtLogBtn = this.setting.txtChangeAuthState;
-    this.authService.isLogin = this.isLogin;
+    this.auth.isLogin = this.isLogin;
 
-    if (this.isLogin) { this.router.navigate([this.setting.urlMain]); }
+    if (this.auth.isLogin) {
+      this.router.navigate([this.setting.URL_MAIN]);
+    }
   }
 
 }

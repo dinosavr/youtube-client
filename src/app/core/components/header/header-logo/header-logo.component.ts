@@ -11,7 +11,7 @@ export class HeaderLogoComponent implements OnInit {
   public urlLogo: string;
 
   constructor(private settingService: SettingService) {
-    this.urlLogo = this.settingService.urlMain;
+    this.urlLogo = this.settingService.URL_MAIN;
   }
 
   public ngOnInit(): void {
