@@ -1,0 +1,22 @@
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>{{ txtLogBtn }}</mat-card-title>
+  </mat-card-header>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="example-form">
+    <mat-form-field *ngIf=!isLogin class="example-full-width">
+      <mat-label>login</mat-label>
+      <input name="loginInput" ngModel #mainSearchInput="ngModel" class="login" matInput placeholder="" value="">
+    </mat-form-field>
+
+    <mat-form-field *ngIf=!isLogin class="example-full-width">
+      <mat-label>password</mat-label>
+      <input name="passwordInput" ngModel #mainSearchInput="ngModel" class="password" type="password" matInput
+        placeholder="" value="">
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="login__btn"> {{ txtLogBtn }}</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

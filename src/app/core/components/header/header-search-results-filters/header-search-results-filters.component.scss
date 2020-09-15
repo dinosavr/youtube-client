@@ -1,0 +1,51 @@
+.search-filters {
+  float: left;
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+
+.list-filters {
+  padding: 0;
+
+  .mat-list-item {
+    display: inline-block;
+    height: auto;
+    width: auto;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #929292;
+  }
+
+  .filter-item {
+    color: #2f80ed;
+  }
+
+  .filter-word {
+    height: 13px;
+    width: 150px;
+    background: #ffffff;
+    border: 0px;
+
+    &:focus {
+      outline: 0px;
+    }
+
+  }
+
+  .filter-item-lnk {
+    text-decoration-line: underline;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+}
+
+.mat-list-base .mat-list-item .mat-list-item-content {
+  background-color: hotpink;
+}

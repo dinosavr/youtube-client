@@ -1,0 +1,26 @@
+<mat-card class="video-item" *ngFor="let post of posts | searchWordFilter: wordFilter | sortSearchResult: searchSort">
+  <div class="video-item-wrapper">
+    <a [routerLink]="['/video', post.id]" routerLinkActive="active">
+      <img mat-card-image
+        src="{{ post.snippet.thumbnails.high.url || post.snippet.thumbnails.medium.url }}"
+        alt="{{ post.snippet.title }}">
+    </a>
+    <mat-card-actions>
+      <mat-icon matBadge="{{ post.statistics.viewCount | thousandToKK }}">visibility</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.likeCount | thousandToKK}}">thumb_up</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.dislikeCount | thousandToKK }}">thumb_down</mat-icon>
+      <mat-icon matBadge="{{ post.statistics.commentCount | thousandToKK }}">comment</mat-icon>
+    </mat-card-actions>
+    <mat-card-title>{{ post.snippet.title }}</mat-card-title>
+    <section>
+      <div class="example-button-row">
+        <a [routerLink]="['/video', post.id]" routerLinkActive="active">
+          <button mat-raised-button class="more-btn">more ...</button>
+        </a>
+      </div>
+    </section>
+  </div>
+  <div [appHighlight]="colorBottomBg" videoDate="{{post.snippet.publishedAt | date:'MM/dd/yyyy'}}"
+    class="status-date-video">
+  </div>
+</mat-card>

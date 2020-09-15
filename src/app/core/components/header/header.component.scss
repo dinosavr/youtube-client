@@ -1,0 +1,12 @@
+$globalSearchWidth: 600px;
+
+.header {
+  position: relative;
+  width: 100%;
+  background: #e5e5e5;
+}
+.globalSearch {
+  width: $globalSearchWidth;
+  overflow: auto;
+  margin: 15px auto;
+}
