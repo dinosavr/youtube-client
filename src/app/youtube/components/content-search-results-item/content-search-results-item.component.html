@@ -1,4 +1,4 @@
-<mat-card class="video-item" *ngFor="let post of posts | sortSearchResult: searchSort | searchWordFilter: wordFilter">
+<mat-card class="video-item" *ngFor="let post of posts | searchWordFilter: wordFilter | sortSearchResult: searchSort">
   <div class="video-item-wrapper">
     <a [routerLink]="['/video', post.id]" routerLinkActive="active">
       <img mat-card-image
