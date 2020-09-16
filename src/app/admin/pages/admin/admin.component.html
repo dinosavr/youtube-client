@@ -1,0 +1,36 @@
+<mat-card class="admin-card">
+  <mat-card-header>
+    <mat-card-title>Add new video</mat-card-title>
+  </mat-card-header>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Title</mat-label>
+      <input name="date" ngModel #titleInput="ngModel" class="date" matInput value="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Date</mat-label>
+      <input name="title" ngModel #titleInput="ngModel" class="title" type="datetime-local" matInput value="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Image url</mat-label>
+      <input name="image" ngModel #imageInput="ngModel" class="image" matInput value="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Video url</mat-label>
+      <input name="video" ngModel #videoInput="ngModel" class="video" matInput value="">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <textarea name="description" ngModel #descriptionTextarea="ngModel" matInput></textarea>
+    </mat-form-field>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="admin__btn"> Add </button>
+    </mat-card-actions>
+  </form>
+</mat-card>

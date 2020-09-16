@@ -18,7 +18,6 @@ export class ContentLoginComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private setting: SettingService,
-    private content: ContentService,
     public router: Router
   ) { }
 

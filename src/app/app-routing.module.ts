@@ -21,6 +21,11 @@ const routes: Routes = [
      import ('./youtube/youtube.module' ).then((m) => m.YoutubeModule),
      canActivate: [AuthGuard]
   },
+  {
+    path: 'admin',
+    loadChildren:  () =>
+     import ('./admin/admin.module' ).then((m) => m.AdminModule),
+  },
   { path: '**', component: ContentPage404Component, canActivate: [AuthGuard] },
 ];
 
