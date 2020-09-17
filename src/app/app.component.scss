@@ -1,0 +1,9 @@
+$wrapperMaxWidth: 100%;
+$wrapperMinWidth: 1024px;
+
+.wrapper {
+  width: 100%;
+  min-width: $wrapperMinWidth;
+  max-width: $wrapperMaxWidth;
+  margin: 0 auto;
+}
