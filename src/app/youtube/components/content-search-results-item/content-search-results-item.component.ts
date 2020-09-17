@@ -5,6 +5,9 @@ import { IResponse } from '../../models/youtube-response-example/youtube-respons
 import { AuthService } from '../../../auth/services/auth.service';
 import { ContentService } from '../../../core/services/content.service';
 import { SearchFilterService } from '../../../core/services/search-filter.service';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { IAppState, ICustomVideo } from '../../../redux/state.models';
 
 @Component({
   selector: 'app-content-search-results-item',
@@ -12,6 +15,7 @@ import { SearchFilterService } from '../../../core/services/search-filter.servic
   styleUrls: ['./content-search-results-item.component.scss']
 })
 export class ContentSearchResultsItemComponent implements OnInit {
+  public customVideo$: Observable<IAppState>;
   public colorBottomBg: string;
   public searchSort: string;
   public wordFilter: string;
@@ -26,7 +30,10 @@ export class ContentSearchResultsItemComponent implements OnInit {
     private auth: AuthService,
     private content: ContentService,
     private setting: SettingService,
-    private searchFilterService: SearchFilterService) { }
+    private searchFilterService: SearchFilterService,
+    private store: Store<{ customVideo: IAppState }>) {
+    this.customVideo$ = store.pipe(select('customVideo'));
+  }
 
   public ngOnInit(): void {
 

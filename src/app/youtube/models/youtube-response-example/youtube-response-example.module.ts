@@ -3,7 +3,7 @@ interface IPageInfo {
   resultsPerPage: number;
 }
 
-interface IThumbnailsTypes {
+export interface IThumbnailsTypes {
   url: string;
   width: number;
   height: number;
@@ -37,7 +37,7 @@ interface ISnippet {
   defaultAudioLanguage: string;
 }
 
-interface IStatistics {
+export interface IStatistics {
   viewCount: string;
   likeCount: string;
   dislikeCount: string;

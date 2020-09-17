@@ -6,12 +6,7 @@
   <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Title</mat-label>
-      <input name="date" ngModel #titleInput="ngModel" class="date" matInput value="">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>Date</mat-label>
-      <input name="title" ngModel #titleInput="ngModel" class="title" type="datetime-local" matInput value="">
+      <input name="title" ngModel #titleInput="ngModel" class="title" matInput value="">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -34,3 +29,4 @@
     </mat-card-actions>
   </form>
 </mat-card>
+<div>Custom Video: {{ customVideo$ | async | json }}</div>
