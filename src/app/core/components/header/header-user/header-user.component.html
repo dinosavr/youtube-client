@@ -1,4 +1,9 @@
 <div class="user-info">
+  <div class="example-button-row" *ngIf=isAuth>
+    <a [routerLink]="['/admin']" routerLinkActive="active">
+      <button mat-raised-button class="admin-btn">Go to admin</button>
+    </a>
+  </div>
 <span class="user-name" (click)="clickUserBtn()">{{ txtLogState }}</span>
 <button mat-mini-fab color="primary" class="user" (click)="clickUserBtn()">
   <mat-icon>account_circle</mat-icon>

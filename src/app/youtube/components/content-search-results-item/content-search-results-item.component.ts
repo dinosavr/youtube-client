@@ -16,6 +16,7 @@ import { IAppState, ICustomVideo } from '../../../redux/state.models';
 })
 export class ContentSearchResultsItemComponent implements OnInit {
   public customVideo$: Observable<IAppState>;
+  public custom: string;
   public colorBottomBg: string;
   public searchSort: string;
   public wordFilter: string;
@@ -33,6 +34,7 @@ export class ContentSearchResultsItemComponent implements OnInit {
     private searchFilterService: SearchFilterService,
     private store: Store<{ customVideo: IAppState }>) {
     this.customVideo$ = store.pipe(select('customVideo'));
+
   }
 
   public ngOnInit(): void {

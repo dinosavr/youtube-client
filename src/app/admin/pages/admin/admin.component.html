@@ -1,6 +1,6 @@
 <mat-card class="admin-card">
   <mat-card-header>
-    <mat-card-title>Add new video</mat-card-title>
+    <mat-card-title>Try to add new video<br/><br/>Sorry ...<br/>i didn't have enough time</mat-card-title>
   </mat-card-header>
 
   <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate class="example-form">
@@ -29,4 +29,13 @@
     </mat-card-actions>
   </form>
 </mat-card>
-<div>Custom Video: {{ customVideo$ | async | json }}</div>
+<mat-card class="admin-card" *ngIf=customVideo$>
+  <mat-card-header>
+    <mat-card-title>Custom Video State JSON:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ customVideo$ | async | json }}
+    </p>
+  </mat-card-content>
+</mat-card>

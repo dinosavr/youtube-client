@@ -27,3 +27,21 @@
   transform: scale(0.8);
   padding: 0px;
 }
+
+.admin-btn {
+  position: absolute;
+  top:4px;
+  left:-40px;
+  width: 120px;
+  height: 32px;
+  filter: drop-shadow(2px 0px 4px red);
+  background: red;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  text-align: center;
+
+  color: #ffffff;
+}

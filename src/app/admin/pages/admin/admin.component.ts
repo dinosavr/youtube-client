@@ -60,8 +60,7 @@ export class AdminComponent implements OnInit {
 
     const newCustomVideo: ICustomVideo = this.createNewCustomVideoData(f);
     this.store.dispatch(addVideo({ payload: newCustomVideo }));
-    console.log(this.customVideo$);
-    this.router.navigate([this.setting.URL_MAIN]);
+   // this.router.navigate([this.setting.URL_MAIN]);
   }
 
   public addVideo(customVideo: ICustomVideo): void {
